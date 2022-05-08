@@ -40,10 +40,11 @@ int main() {
         std::cout << "Ошибка открытия файла!" << std::endl;
     } else {
         for (auto now: users) {
-            fout << "Username: " << now.get_username() << std::endl << "Password: " << now.get_password() << std::endl
-                 << std::endl;
+            fout << "Username: " << now.get_username() << "\nPassword: " << now.get_password() << "\n\n";
         }
     }
     fout.close();
+
+    std::cout << "Program exited successfuly\n";
     return 0;
 }
