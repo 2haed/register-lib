@@ -5,7 +5,6 @@
 #include <fstream>
 
 
-
 User::User(const std::string& username, const std::string& password) {
     _username = username;
     _password = password;
@@ -53,15 +52,30 @@ User User::create_user() {
 
 void User::log_in(const std::string& username, const std::string& password) {
     std::string path = "Database.txt";
-    std::ifstream file(path);
-    if (!fout.is_open()) { // Обработку ошибки лучше перенести в самое начало инициализации ofstream. Так ты избежишь лишних операций. См ссылку 1
+    std::ifstream fin (path);
+    if (!fin.is_open()) { // Обработку ошибки лучше перенести в самое начало инициализации ofstream. Так ты избежишь лишних операций. См ссылку 1
         std::cout << "Ошибка открытия файла!" << std::endl;
     } else {
-        for (auto now: users) {
-            fout << "Username: " << now.get_username() << "\nPassword: " << now.get_password() << "\n\n";
+        for () {
+            fin << "Username: " << now.get_username() << "\nPassword: " << now.get_password() << "\n\n";
         }
     }
-    fout.close();
+    fin.close();
+
+}
+
+void find_user(const std::string& username) {
+    std::string path = "Database.txt";
+    std::ifstream fin (path);
+    if (!fin.is_open()) { // Обработку ошибки лучше перенести в самое начало инициализации ofstream. Так ты избежишь лишних операций. См ссылку 1
+        std::cout << "Ошибка открытия файла!" << std::endl;
+    } else {
+        for () {
+            fin << "Username: " << now.get_username() << "\nPassword: " << now.get_password() << "\n\n";
+        }
+    }
+    fin.close();
+
 
 }
 

@@ -16,6 +16,7 @@ public:
     static User create_user();
     void log_in(const std::string &username, const std::string &password);
     void delete_user(const std::string &username, const std::string &password);
+    void find_user(const std::string &username0);
     std::string get_username() {return _username;};
     std::string get_password() {return _password;};
 private:

@@ -10,7 +10,7 @@ int main() {
 //    int n;
 //    std::cin >> n;
 //    std::string path = "Database.txt";
-//    std::ofstream fout(path, std::ios::app);
+//    std::ofstream fout;
 //    fout.open(path);
 //    if (!fout.is_open()) { // ССЫЛКА 1
 //        std::cout << "Ошибка открытия файла!\n";
@@ -34,7 +34,8 @@ int main() {
     for (int i = 0; i < 1; ++i) {
         users.emplace_back(User::create_user());
     }
-    std::ofstream fout(path, std::ios::app);
+    std::ofstream fout;
+    fout.open(path);
     if (!fout.is_open()) { // Обработку ошибки лучше перенести в самое начало инициализации ofstream. Так ты избежишь лишних операций. См ссылку 1
         std::cout << "Ошибка открытия файла!" << std::endl;
     } else {
@@ -44,6 +45,23 @@ int main() {
     }
     fout.close();
 
-
+    std::cout << "Program exited successfuly\n";
     return 0;
+
+//    std::vector<User> users;
+//    while (true) {
+//        int value;
+//        std::cout << "Enter value or -1 to exit: ";
+//        std::cin >> value;
+//        if (value == -1) { break; }
+//        else if (value == 1) {
+//            users.emplace_back(User::create_user());
+//            std::cout << users.back().get_username() << " created\n";
+//        } else if (value == 2) {
+//            users.emplace_back(User::create_random_user());
+//            std::cout << users.back().get_username() << " created\n";
+//        } else {
+//            std::cout << "Incorrect value: " << value << "\n";
+//        }
+//    }
 }
