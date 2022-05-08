@@ -10,7 +10,7 @@ int main() {
 //    int n;
 //    std::cin >> n;
 //    std::string path = "Database.txt";
-//    std::ofstream fout;
+//    std::ofstream fout(path, std::ios::app);
 //    fout.open(path);
 //    if (!fout.is_open()) { // ССЫЛКА 1
 //        std::cout << "Ошибка открытия файла!\n";
@@ -34,8 +34,7 @@ int main() {
     for (int i = 0; i < 1; ++i) {
         users.emplace_back(User::create_user());
     }
-    std::ofstream fout;
-    fout.open(path);
+    std::ofstream fout(path, std::ios::app);
     if (!fout.is_open()) { // Обработку ошибки лучше перенести в самое начало инициализации ofstream. Так ты избежишь лишних операций. См ссылку 1
         std::cout << "Ошибка открытия файла!" << std::endl;
     } else {
@@ -45,6 +44,6 @@ int main() {
     }
     fout.close();
 
-    std::cout << "Program exited successfuly\n";
+
     return 0;
 }
