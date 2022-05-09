@@ -46,15 +46,14 @@ int main() {
 //        std::cout << "Ошибка открытия файла!" << std::endl;
 //    } else {
 //        for (auto now: users) {
-//            fout << now.get_username() << "\n" << now.get_password() << "\n";
+//            fout  << now.get_username() << "\n" << now.get_password() << "\n";
 //        }
 //    }
+//    fout << "\n";
 //    fout.close();
 //
 //    std::cout << "Program exited successfuly\n";
 //    return 0;
-
-
 
 
 //    std::vector<User> users;
@@ -74,9 +73,21 @@ int main() {
 //        }
 //    }
 //
-    std::cout << "Enter login " << std::endl;
-    std::string u;
+//    std::cout << "Enter login " << std::endl;
+//    std::string u;
+//    std::cin >> u;
+//    auto found = Database::find_user(u);
+//    std::cout << "User found:\n" << "Username: " << found.get_username() << "\nPassword: " << found.get_password() << "\n";
+
+
+//
+std::string u;
+    std::cout << "Enter login: \n";
     std::cin >> u;
-    Database::find_user(u);
+    std::cout << "Enter password: \n";
+    std::string p;
+    std::cin >> p;
+Database::delete_user(u, p);
+
 
 }

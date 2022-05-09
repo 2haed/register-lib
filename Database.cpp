@@ -29,14 +29,12 @@ for (int i = 0; i < _password.size(); ++i) {
 }
 
 
-std::string Database::find_user(const std::string &username) {
+User Database::find_user(const std::string &username) {
     std::string path = "Database.txt";
     std::ifstream fin(path);
     if (!fin.is_open()) {
         std::cout << "Ошибка открытия файла!\n";
     } else {
-        const auto user_ptr = std::make_unique<Database>();
-        Database& db = *user_ptr;
         std::string str;
         std::string str2;
         std::string str3;
@@ -44,20 +42,20 @@ std::string Database::find_user(const std::string &username) {
             if (str.empty()) {
                 continue;
             }
+            if (str == "Username: " or str == "Password: "){
+                continue;
+            }
             if (str == username) {
                 str2 = str;
                 continue;
             }
             if (!str2.empty()) {
-                str3.append(str2);
-                str3.push_back(' ');
-                str3.append(str);
-                return str3;
+                return {str2, str};
             }
         };
     }
     fin.close();
-    return "Not found";
+    return {username, "not found"};
 }
 
 
@@ -76,6 +74,39 @@ std::string Database::find_user(const std::string &username) {
 //
 //}
 //
-//void Database::delete_user(const std::string &username, const std::string &password) {
-//
-//}
+void Database::delete_user(const std::string &username, const std::string &password) {
+    std::string path = "Database.txt";
+    std::vector<std::string> vec;
+    std::ifstream fin(path);
+    if (!fin.is_open()) {
+        std::cout << "Ошибка открытия файла!\n";
+    } else {
+        std::string str;
+        std::string str2;
+        while (std::getline(fin, str)) {
+            if (str.empty()) {
+                continue;
+            }
+            vec.emplace_back(str);
+        }
+    }
+    fin.close();
+    std::ofstream fout(path);
+        if (!fout.is_open()) {
+            std::cout << "Ошибка открытия файла!\n";
+        } else {
+            for (const auto& now : vec){
+                    if (now == username or now == password) {
+                        vec.erase(std::remove(vec.begin(), vec.end(), now), vec.end());
+                    }
+                }
+            }
+        for (auto & i : vec){
+            fout << i << "\n";
+//            if ((i+1)%2 == 0) {
+//                fout << "\n";
+//            }
+        }
+    fout.close();
+}
+
