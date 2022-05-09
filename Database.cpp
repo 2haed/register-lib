@@ -96,16 +96,19 @@ void Database::delete_user(const std::string &username, const std::string &passw
             std::cout << "Ошибка открытия файла!\n";
         } else {
             for (const auto& now : vec){
-                    if (now == username or now == password) {
+                    if (now == username) {
+                        vec.erase(std::remove(vec.begin(), vec.end(), now), vec.end());
+                    }
+                    if( now == password) {
                         vec.erase(std::remove(vec.begin(), vec.end(), now), vec.end());
                     }
                 }
             }
-        for (auto & i : vec){
-            fout << i << "\n";
-//            if ((i+1)%2 == 0) {
-//                fout << "\n";
-//            }
+        for (int i = 0; i < vec.size(); i++){
+            fout << vec[i] << "\n";
+            if ((i+1)%2 == 0) {
+                fout << "\n";
+            }
         }
     fout.close();
 }

@@ -35,25 +35,7 @@ int main() {
 
 
 
-//    std::string path = "Database.txt";
-//    std::vector<User> users;
-//    for (int i = 0; i < 1; ++i) {
-//        users.emplace_back(User::create_user());
-//    }
-//    std::ofstream fout(path, std::ios::app);
-//
-//    if (!fout.is_open()) {
-//        std::cout << "Ошибка открытия файла!" << std::endl;
-//    } else {
-//        for (auto now: users) {
-//            fout  << now.get_username() << "\n" << now.get_password() << "\n";
-//        }
-//    }
-//    fout << "\n";
-//    fout.close();
-//
-//    std::cout << "Program exited successfuly\n";
-//    return 0;
+
 
 
 //    std::vector<User> users;
@@ -79,8 +61,27 @@ int main() {
 //    auto found = Database::find_user(u);
 //    std::cout << "User found:\n" << "Username: " << found.get_username() << "\nPassword: " << found.get_password() << "\n";
 
-
+//    std::string path = "Database.txt";
+//    std::vector<User> users;
+//    for (int i = 0; i < 1; ++i) {
+//        users.emplace_back(User::create_user());
+//    }
+//    std::ofstream fout(path, std::ios::app);
 //
+//    if (!fout.is_open()) {
+//        std::cout << "Ошибка открытия файла!" << std::endl;
+//    } else {
+//        for (auto now: users) {
+//            fout  << now.get_username() << "\n" << now.get_password() << "\n";
+//        }
+//    }
+//    fout << "\n";
+//    fout.close();
+//
+//    std::cout << "Program exited successfuly\n";
+//    return 0;
+
+
 std::string u;
     std::cout << "Enter login: \n";
     std::cin >> u;
