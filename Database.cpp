@@ -37,7 +37,6 @@ User Database::find_user(const std::string &username) {
     } else {
         std::string str;
         std::string str2;
-        std::string str3;
         while (std::getline(fin, str)) {
             if (str.empty()) {
                 continue;
@@ -59,21 +58,35 @@ User Database::find_user(const std::string &username) {
 }
 
 
-//
-//void Database::log_in(const std::string &username, const std::string &password) {
-//    std::string path = "Database.txt";
-//    std::ifstream fin (path);
-//    if (!fin.is_open()) { // Обработку ошибки лучше перенести в самое начало инициализации ofstream. Так ты избежишь лишних операций. См ссылку 1
-//        std::cout << "Ошибка открытия файла!\n";
-//    } else {
-//        for () {
-//            fin << "Username: " << now.get_username() << "\nPassword: " << now.get_password() << "\n";
-//        }
-//    }
-//    fin.close();
-//
-//}
-//
+void Database::log_in(const std::string &username, const std::string &password) {
+    std::string path = "Database.txt";
+    std::ifstream fin (path);
+    if (!fin.is_open()) { // Обработку ошибки лучше перенести в самое начало инициализации ofstream. Так ты избежишь лишних операций. См ссылку 1
+        std::cout << "Ошибка открытия файла!\n";
+    } else {
+        std::string str;
+        std::string str2;
+        while (std::getline(fin, str)) {
+            if (str.empty()) {
+                continue;
+            }
+            if (str == username) {
+                str2 = str;
+                continue;
+            }
+            if (str == password and str2 == username) {
+                std::cout << "Successfully logged in\n" << "Welcome, " << username << "\n";
+                break;
+            }
+            else{
+                std::cout << "Incorrect username or password\n";
+            }
+        }
+    }
+    fin.close();
+}
+
+
 void Database::delete_user(const std::string &username, const std::string &password) {
     std::string path = "Database.txt";
     std::vector<std::string> vec;

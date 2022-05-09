@@ -82,13 +82,19 @@ int main() {
 //    return 0;
 
 
-std::string u;
+//std::string u;
+//    std::cout << "Enter login: \n";
+//    std::cin >> u;
+//    std::cout << "Enter password: \n";
+//    std::string p;
+//    std::cin >> p;
+//Database::delete_user(u, p);
+
+    std::string u;
     std::cout << "Enter login: \n";
     std::cin >> u;
     std::cout << "Enter password: \n";
     std::string p;
     std::cin >> p;
-Database::delete_user(u, p);
-
-
+    Database::log_in(u, p);
 }
