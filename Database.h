@@ -1,8 +1,27 @@
-//
-// Created by MrMam on 08.05.2022.
-//
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <fstream>
+#include <vector>
+#include <memory>
 
-#ifndef FIRST_DATABASE_H
-#define FIRST_DATABASE_H
+#pragma once
 
-#endif //FIRST_DATABASE_H
+class Database {
+public:
+    Database() = default;
+    ~Database() = default;
+public:
+    static void print_info(const std::string& username, const std::string& password);
+    void print_info_safety (const std::string& username);
+    static std::string find_user(const std::string &username);
+    void log_in(const std::string &username, const std::string &password);
+    void delete_user(const std::string &username, const std::string &password);
+    std::string get_username() {return _username;};
+    std::string get_password() {return _password;};
+private:
+    std::string _username;
+    std::string _password;
+
+
+};
