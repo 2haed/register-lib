@@ -13,7 +13,6 @@ void Database::print_info(const std::string& username, const std::string& passwo
     std::cout << "Password: " << password;
 }
 
-
 void Database::print_info_safety(const std::string& username) {
     std::vector <std::string> s;
 
@@ -28,7 +27,6 @@ for (int i = 0; i < _password.size(); ++i) {
     }
     std::cout << "\n";
 }
-
 
 User Database::find_user(const std::string &username) {
     std::string path = "Database.txt";
@@ -57,7 +55,6 @@ User Database::find_user(const std::string &username) {
     fin.close();
     return {username, "not found"};
 }
-
 
 void Database::log_in(const std::string &username, const std::string &password) {
     std::string path = "Database.txt";

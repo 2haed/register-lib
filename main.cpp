@@ -5,8 +5,6 @@
 #include <string>
 
 
-
-
 enum funcitons {create_user = 1, login, create_random_user, find_user, delete_user, clear_database};
 
 int main() {
