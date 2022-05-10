@@ -79,7 +79,6 @@ int main() {
             fout.close();
             std::cout << n << " Users were created Successfully\n\n";
 
-
         } else if (value == 4) {
             std::string u;
             std::string p;
