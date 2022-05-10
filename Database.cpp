@@ -7,6 +7,7 @@
 #include <utility>
 #include <memory>
 
+
 void Database::print_info(const std::string& username, const std::string& password) {
     std::cout << "Username: " << username;
     std::cout << "Password: " << password;
@@ -100,6 +101,8 @@ void Database::delete_user(const std::string &username, const std::string &passw
             vec.emplace_back(str);
         }
     }
+    int n;
+    n = vec.size();
     fin.close();
     std::ofstream fout(path);
         if (!fout.is_open()) {
@@ -120,6 +123,27 @@ void Database::delete_user(const std::string &username, const std::string &passw
                 fout << "\n";
             }
         }
+        if (vec.size() < n) {
+            std::cout << "User was deleted Successfully\n";
+        }
     fout.close();
 }
 
+void Database::clear_database(const std::string &username, const std::string &password) {
+    std::string path = "Database.txt";
+    std::vector<std::string> vec;
+    std::ofstream fout(path);
+    if (username == "admin" and password == "admin") {
+        if (!fout.is_open()) {
+            std::cout << "Ошибка открытия файла!\n";
+        }
+        else {
+            for (auto now : vec) {}
+        }
+        std::cout << '\n';
+        fout.close();
+    }
+    else {
+        std::cout << "Incorrect username or password\n";
+    }
+}

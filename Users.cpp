@@ -2,17 +2,17 @@
 #include <string>
 #include <vector>
 #include "Users.h"
-#include <fstream>
+
 
 
 User::User(const std::string& username, const std::string& password) {
     _username = username;
     _password = password;
-    std::cout << "User created" << std::endl;
+//    std::cout << "User created" << std::endl;
 }
 
 User::~User() {
-    std::cout << "User deleted" << std::endl;
+//    std::cout << "User deleted" << std::endl;
 }
 
 User User::create_random_user() {
