@@ -61,7 +61,7 @@ User Database::find_user(const std::string &username) {
 void Database::log_in(const std::string &username, const std::string &password) {
     std::string path = "Database.txt";
     std::ifstream fin (path);
-    if (!fin.is_open()) { // Обработку ошибки лучше перенести в самое начало инициализации ofstream. Так ты избежишь лишних операций. См ссылку 1
+    if (!fin.is_open()) {
         std::cout << "Ошибка открытия файла!\n";
     } else {
         std::string str;
@@ -78,10 +78,7 @@ void Database::log_in(const std::string &username, const std::string &password) 
                 std::cout << "Successfully logged in\n" << "Welcome, " << username << "\n";
                 break;
             }
-            else{
-                std::cout << "Incorrect username or password\n";
-            }
-        }
+        }if (str2.empty()) {std::cout << "Incorrect username or password\n";}
     }
     fin.close();
 }
